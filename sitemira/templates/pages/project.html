@@ -1,0 +1,68 @@
+{% extends 'pages/base.html' %}
+{% block content %} 
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+             <img src="{{ created.logo_pic.url }}" class="img-thumbnail" width="500px" height="500px">
+        </div>
+        <div class="col-xs-6">
+            <h1 class="text-center">Наименование</h1>
+          <p class="text-center">Категория: {{ created.chosen_category }}</p>
+          <p class="text-center">Тип помощи: {{ created.chosen_category_2 }}</p>
+            <p class="text-left">{{ created.low_description|linebreaksbr }}</p>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">Описание проекта</div>
+<p class="text-left">{{ created.description|linebreaksbr }}</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">Контактная информация</div>
+        <p class="text-center">{{ created.first_name }}</p>
+        <p class="text-center">{{ created.second_name }}</p>
+        <p class="text-center">{{ created.coordinates }}</p>
+        <p class="text-center">{{ created.phone }}</p>
+        <p class="text-center">{{ created.email }}</p>
+        
+{% if created.published_date %}
+    
+        {{ created.published_date }}
+        
+{% else %}
+    <a class="btn btn-default" href="{% url 'publish_project' pk=created.pk %}">Опубликовать</a>
+        
+{% endif %}
+    <a class="btn btn-default" href="{% url 'delete_project' pk=created.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+
+        
+    </div>
+</div>
+
+<hr>
+<a class="btn btn-default" href="{% url 'add_comment_to_post' pk=created.pk %}">Add comment</a>
+{% for comment in created.comments.all %}
+ {% if user.is_authenticated or comment.approved_comment %}
+    <div class="container col-xs-6 col-xs-offset-1"><div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            {% if not comment.approved_comment %}
+                <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+            {% endif %}
+
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+        </div>
+ {% endif %}
+{% empty %}
+    <p>Нет комментариев</p>
+{% endfor %}
+
+{% endblock %}

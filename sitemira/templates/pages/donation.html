@@ -1,0 +1,18 @@
+{% extends 'pages/base.html' %}
+{% block content %} 
+  {% for create in creates %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+             <img src="{{ create.logo_pic.url }}" class="img-thumbnail" width="500px" height="500px">
+        </div>
+        <div class="col-xs-2">
+          <a  href="{% url 'project' pk=create.pk %}">{{ create.chosen_category }}</a>
+          <p>{{ create.chosen_category_2 }}</p>
+            <a href="{% url 'project' pk=create.pk %}">Comments: {{ create.approved_comments.count }}</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

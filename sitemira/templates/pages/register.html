@@ -1,0 +1,17 @@
+{% extends "pages/base.html" %}
+{% load bootstrap %}
+{% load socialaccount %}
+{% block content %}
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="container col-xs-6 col-xs-offset-3">
+      {{ form|bootstrap }}
+      <button type="submit">Зарегистрироваться</button>
+        </div>
+        <div class="container col-xs-1 col-xs-offset-3">
+          <a class="btn btn-social-icon btn-sm btn-vk" href="{% provider_login_url "vk" method="oauth2" %}">
+    <span class="fa fa-vk"></span>
+                </a>
+              </div>
+    </form>
+{% endblock %}

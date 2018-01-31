@@ -1,0 +1,9 @@
+{% extends 'pages/base.html' %}
+{% block content %} 
+{% for create in creates %}
+        <div class="container">
+ <a  href="{% url 'project' pk=create.pk %}">{{ create.chosen_category }}</a>
+          <p>{{ create.chosen_category_2 }}</p>
+</div>
+{% endfor %}
+ {% endblock %}

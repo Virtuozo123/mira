@@ -1,0 +1,103 @@
+{% extends 'pages/base.html' %}
+{% block content %} 
+<div class="jumbotron col-xs-10 col-xs-offset-1 head_image">
+     <h1 class="text-center head_text" >Счастье в служении ближнему («Заповедь новую даю вам, да любите друг друга; как Я возлюбил вас, так и вы да ЛЮБИТЕ ДРУГ ДРУГА. По тому узнают все, что вы Мои ученики, если будете иметь любовь между собою»</h1>
+  <div class="col-xs-3 col-xs-offset-2 text-center head_button_2">
+      <a href="{% url 'create' %}">
+         <abbr title="Нажмите, чтобы заполнить заявку на оказание помощи через форму на сайте" data-toggle="tooltip" data-placement="bottom" >Вам нужна помощь</abbr>
+      </a>
+  </div>
+  <div class="col-xs-3 col-xs-offset-2 text-center head_button ">
+      <a href="{% url 'donation' %}">
+        <abbr title="Нажмите для оказания помощи" data-toggle="tooltip" data-placement="bottom" >Вы хотите помочь</abbr>
+      </a>
+  </div>
+</div>
+      
+<div class="container" >
+    <div class="row">
+    <h1 class="col-xs-10 col-xs-offset-1 text-center main_text">МИРА</h1>
+        </div>
+</div>
+<div class="container" >
+    <div class="row">
+    <h1 class="col-xs-2 text-center main_text">Покровитель</h1>
+        <h1 class="col-xs-8 col-xs-offset-2 text-center main_text">Описание</h1>
+        </div>
+</div>
+<div class="">
+   <div class="carousel shadow"> 
+     <div class="pager">
+      <div class="carousel-button-left"><a href="#" class="glyphicon glyphicon-chevron-left"></a></div> 
+      <div class="carousel-button-right"><a href="#" class="glyphicon glyphicon-chevron-right"></a></div> 
+     </div>
+		<div class="carousel-wrapper"> 
+		   <div class="carousel-items"> 
+			  <div class="carousel-block">
+                  <div class="example2">
+                     <img src="../../static/img/pensioner.jpg"  style="width: 100%; height: 90%;" class="example_beauty">
+                      <a href="{% url 'donation_pensioner' %}">Пенсионеры и инвалиды</a>
+                     <div class="example_text">
+                        <p>Пенсионе́р — лицо, получающее пенсию — регулярное денежное пособие, выплачиваемое лицам, которые достигли пенсионного возраста, стали инвалидами или потеряли кормильца, а также военнослужащим, прослужившим необходимое для начисления пенсии лет.</p>
+                     </div>
+                  </div>
+			  </div>
+			  <div class="carousel-block">
+				 <div class="example2">
+                     <img src="../../static/img/poor.jpg"  style="width: 100%; height: 90%;" class="example_beauty">
+                      <a href="{% url 'donation_poor' %}">Малоимущие семьи</a>
+                     <div class="example_text"> 
+                     <p>Чтобы вычислить средний доход семьи, потребуется: сложить все доходы ее членов за последние 3-и месяца. Полученная цифра делиться на три. ... Малоимущий гражданин – это человек, сумма среднего дохода которого будет ниже, прожиточного минимума.</p>
+                     </div>
+                 </div>
+			  </div>
+			  <div class="carousel-block">
+                  <div class="example2">
+                     <img src="../../static/img/child.jpg"  style="width: 100%; height: 90%;" class="example_beauty">
+                      <a href="{% url 'donation_child' %}">Больные дети и сироты</a>
+                     <div class="example_text">
+                        <p>Сирота́ — человек, лишившийся единственного или обоих родителей в связи с их смертью.
+Начиная с произведений Чарльза Диккенса, художественный образ сироты стал очень популярен в литературе.
+В России дети-сироты направляются в специально предназначенные для этого детские воспитательные учреждения: дома ребёнка, детские дома, интернаты, приюты.</p>
+                      </div>
+                  </div>
+			  </div>
+			  <div class="carousel-block">
+				<div class="example2">
+                  <img src="../../static/img/churches.jpg"  style="width: 100%; height: 90%;" class="example_beauty">
+                    <a href="{% url 'donation_churches' %}">Храмы и монастыри</a>
+                  <div class="example_text">
+                      <p>Храм (от праслав. *chormъ > храмъ — «дом»[1]) — культовое сооружение, предназначенное для совершения богослужений и религиозных обрядов. Значение храмов часто гораздо шире обрядовых функций, ими выполняемых, и религиозных идей, которые они воплощают. В символике архитектуры и декоративного убранства храмов раскрываются представления о мироздании, во многие эпохи (особенно в Средние века в Европе) храмы были местом общественных собраний, торжественных церемоний, имели мемориальный характер, обладали правом убежища.</p> 
+                  </div>
+                </div>
+			  </div>
+			  <div class="carousel-block">
+				<div class="example2">
+                  <img src="../../static/img/prisoners.jpg"  style="width: 100%; height: 90%;" class="example_beauty">
+                    <a href="{% url 'donation_prisoners' %}">Заключеные</a>
+                  <div class="example_text"> 
+                      <p>Заключённый (ЗК, «ЗеКа», «зек») — лицо, подвергнутое аресту в порядке меры пресечения, человек, лишённый свободы по приговору суда и отбывающий наказание в специальном учреждении — колонии, следственном изоляторе, тюрьме и тому подобное.
+В современном законодательстве этот термин соотносится лишь с лицами, заключёнными под стражу / содержащимися под стражей (подозреваемыми и обвиняемыми).</p>
+                  </div>
+                </div>
+			  </div>
+			  <div class="carousel-block">
+				 <div class="example2">
+                    <img src="../../static/img/mercy.jpg"  style="width: 100%; height: 90%;" class="example_beauty">
+                     <a href="{% url 'donation_mercy' %}">Дома милосердия</a>
+                    <div class="example_text">
+                       <p>Смотреть что такое "Дом милосердия" в других словарях: дом-интернат милосердия для престарелых и инвалидов — Учреждение социального обслуживания, предназначенное для постоянного, временного [(сроком до 6 месяцев) или пятидневного в неделю] проживания престарелых граждан и инвалидов ...</p>
+                     </div>
+                 </div>
+			  </div>
+		   </div>
+		</div>
+   </div>
+</div>	
+<script src="../../static/script/main_car.js"></script>
+
+<div class="container" >
+    <div class="row">
+    <h1 class="col-xs-10 col-xs-offset-1 text-center main_text">Ценности миссия</h1>
+        </div>
+ {% endblock %}

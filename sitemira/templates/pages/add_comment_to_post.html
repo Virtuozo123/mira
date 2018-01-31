@@ -1,0 +1,9 @@
+{% extends 'pages/base.html' %}
+{% load bootstrap %}
+{% block content %}
+    <h1>Новый комментарий</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="save btn btn-default">Отправить</button>
+    </form>
+{% endblock %}
