@@ -23,6 +23,7 @@ a {
 }
 
 .head_image {
+    text-align: center;
     background-image: url(../img/back.jpg);
     border: 5px solid #d8dfbb;
     height: 450px;
