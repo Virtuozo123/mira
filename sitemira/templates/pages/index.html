@@ -1,19 +1,21 @@
 {% extends 'pages/base.html' %}
 {% block content %} 
-<div class="jumbotron col-xs-10 col-xs-offset-1 head_image">
-     <h1 class="text-center head_text" >Счастье в служении ближнему («Заповедь новую даю вам, да любите друг друга; как Я возлюбил вас, так и вы да ЛЮБИТЕ ДРУГ ДРУГА. По тому узнают все, что вы Мои ученики, если будете иметь любовь между собою»</h1>
-  <div class="col-xs-3 col-xs-offset-2 text-center head_button_2">
-      <a href="{% url 'create' %}">
-         <abbr title="Нажмите, чтобы заполнить заявку на оказание помощи через форму на сайте" data-toggle="tooltip" data-placement="bottom" >Вам нужна помощь</abbr>
-      </a>
+<div class="container col-xs-10 col-xs-offset-1">
+<div class="example1">
+                     <img src="../../static/img/back.jpg"  style="width: 100%; height: 100%;" class="example_beauty">
+                     <div class="example_text"> 
+                     <h1 class="text-center" >Счастье в служении ближнему («Заповедь новую даю вам, да любите друг друга; как Я возлюбил вас, так и вы да ЛЮБИТЕ ДРУГ ДРУГА. По тому узнают все, что вы Мои ученики, если будете иметь любовь между собою»</h1>
+                     </div>
+<div class="row">
+      <div class="col-xs-5 col-xs-offset-1 text-center">
+      <a class="example_text2" href="{% url 'create' %}">Вам нужна помощь</a>
   </div>
-  <div class="col-xs-3 col-xs-offset-2 text-center head_button ">
-      <a href="{% url 'donation' %}">
-        <abbr title="Нажмите для оказания помощи" data-toggle="tooltip" data-placement="bottom" >Вы хотите помочь</abbr>
-      </a>
-  </div>
-</div>
-      
+  <div class="col-xs-5 text-center">
+      <a class="example_text2" href="{% url 'donation' %}">Вы хотите помочь</a>
+    </div>
+    </div>
+                 </div> 
+    </div>  
 <div class="container" >
     <div class="row">
     <h1 class="col-xs-10 col-xs-offset-1 text-center main_text">МИРА</h1>
