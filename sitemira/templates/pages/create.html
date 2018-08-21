@@ -3,7 +3,7 @@
 {% block content %} 
     <form method="POST"  enctype="multipart/form-data" class="post-form">{% csrf_token %}
          <legend>Создание проекта</legend>
-        <div class="container col-xs-6 col-xs-offset-3">
+        <div class="container col-xs-10 col-xs-offset-1">
               {{ form|bootstrap }}             
         <div class="form-group">
         <button type="submit" class="save btn btn-default">Создать</button>

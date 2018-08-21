@@ -98,8 +98,40 @@
 </div>	
 <script src="../../static/script/main_car.js"></script>
 
-<div class="container" >
+<div class="container-fluid" >
     <div class="row">
-    <h1 class="col-xs-10 col-xs-offset-1 text-center main_text">Ценности миссия</h1>
+    <h1 class="col-xs-10 col-xs-offset-1 text-center main_text" id="info">Ценности миссия</h1>
         </div>
+
+<div class="container-fluid" >
+    <div class="row">
+    <h1 class="col-xs-10 col-xs-offset-1 text-center main_text" id="blog"><a href="{% url 'blog_list' %}">Блог</a></h1>
+        {% for blog in creates %}
+    <div class="container-fluid">
+        <div class="col-xs-6 col-xs-offset-2"><h1 class=""><a  href="{% url 'created_blog' pk=blog.pk %}"> {{ blog.blog_name }} </a></h1></div>
+    </div>
+    <div class="container-fluid">
+        <div class="col-xs-1 col-xs-offset-9"><p> {{ blog.author }}</p></div>
+    </div>
+    <div class="container-fluid">
+    <div class="col-xs-12"> <p>{{ blog.blog_text }}</p>  </div>
+    </div>
+       <div class="container-fluid">
+           <div class="col-xs-2 col-xs-offset-9"><p> {{ blog.blog_date }} </p></div>
+        </div>
+                {% endfor %}
+
+<div class="container-fluid text-center">
+<address>
+          <strong>Мира</strong><br>
+  Улица Петрова дом 4<br>
+  Петрозаводск 670879<br>
+  <abbr title="Телефон">(123) 456-7890</abbr>
+</address>
+
+<address>
+  <strong>Почта</strong><br>
+  <a href="mailto:katt15@mail.ru">katt15@mail.ru</a>
+</address>
+    </div>
  {% endblock %}

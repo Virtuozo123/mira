@@ -1,5 +1,5 @@
 from django import forms
-from .models import create, Comment
+from .models import create, Comment, blog, Comment2
 from django.utils.translation import ugettext_lazy as _ 
 
 
@@ -29,3 +29,15 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('author', 'text',)        
+        
+class CommentForm2(forms.ModelForm):
+
+    class Meta:
+        model = Comment2
+        fields = ('author', 'text',) 
+        
+class create_blog(forms.ModelForm):
+     
+    class Meta:
+        model = blog
+        fields = ('author','blog_name','blog_text','blog_items')

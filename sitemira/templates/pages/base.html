@@ -8,36 +8,53 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link type="text/css" rel="stylesheet" href="{% static 'boots_social/bootstrap-social.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
-    <script type="text/javascript" src="../../static/script/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <script type="text/javascript" src="../../static/script/jquery.js"></script>
     <link rel="stylesheet" href="{% static 'css/mira.css' %}">
 </head>
-<body>
-    <div class="page-header head">
-    <div class="container">
-        <img src="{% static 'img/logo.jpg' %}" alt="logo" class="img-responsive col-xs-1 logo">
-        <div class="row"> 
-            <div class="col-xs-2 text-center head_button"><a href="/">Главная</a></div>
-            <div class="col-xs-2 text-center head_button"><a href="/">О нас</a></div>
-            <div class="col-xs-2 text-center head_button"><a href="/">Блог</a></div>
-            <div class="col-xs-2 text-center head_button"><a href="/">Контакты</a></div>
-            <div class="col-xs-1 text-center head_button"><a href="/">ru/en</a></div>
-            {% if user.is_authenticated %}
-            <a href="{% url 'verifi_list' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <p class="top-menu">Hello, {{ user.username }}</p>
-            <p><small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-            {% else %}
-            <a href="{% url 'register' %}" class="top-menu">Регистрация</a>
-
-            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-            {% endif %}
-        </div>
-        </div>
+<body>  
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="#">Мира</a>
     </div>
-    <div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+         <li><a href="{% url 'index' %}">Главная</a></li>
+         <li><a href="">О нас</a></li>
+         <li><a href="{% url 'blog_list' %}">Блог</a></li>
+         <li><a href="">Контакты</a></li>
+         <li><a href="/">ru/en</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Пользователь<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+               {% if user.is_authenticated %}
+              <li><a href="/">Привет, {{ user.username.title }}</a></li>
+              <li class="divider"></li>
+             <li> <a href="{% url 'verifi_list' %}" class="top-menu">Подтвердить проекты</a></li>
+              <li class="divider"></li>
+           <li><a href="{% url 'logout' %}">Выйти</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}" class="top-menu">Войти</a></li>
+              <li><a href="{% url 'register' %}" class="top-menu">Регистрация</a> </li>
+            {% endif %}
+        </ul>
+        </li>
+          </ul>
+    </div>
+  </div>
+</nav>
             {% block content %}
             {% endblock %}
-    </div>
-    </body>
+</body>
 </html>

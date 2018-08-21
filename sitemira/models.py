@@ -72,3 +72,26 @@ class Comment(models.Model):
     def __str__(self):
         return self.text    
     
+class blog(models.Model):
+    author = models.ForeignKey('auth.User',blank=True, null=True)
+    blog_name = models.CharField(max_length=200, null=True)
+    blog_text = models.TextField(null=True)
+    blog_date = models.DateTimeField(default=timezone.now)
+    blog_items = models.FileField(upload_to='media/%Y/%m/%d',null=True)
+    
+    def __str__(self):
+        return self.blog_name
+    
+class Comment2(models.Model):
+    post = models.ForeignKey('sitemira.blog', related_name='comments')
+    author = models.CharField(max_length=200, null=True)
+    text = models.TextField(null=True)
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text   

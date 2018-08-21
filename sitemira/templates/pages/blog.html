@@ -1,0 +1,46 @@
+{% extends "pages/base.html" %}
+{% load bootstrap %}
+{% block content %}
+<div class="container">
+       <div class="col-xs-6 col-xs-offset-2"><h1 class="main_text"> {{ created.blog_name }} </h1></div>
+    </div>
+<div class="container">
+        <div class="col-xs-1 col-xs-offset-9"><p> {{ created.author }}</p></div>
+    </div>
+<div class="container">
+    <div class="col-xs-12"> <p>{{ created.blog_text }}</p>  </div>
+</div>
+       <div class="container">
+           <div class="col-xs-2 col-xs-offset-9"><p> {{ created.blog_date }} </p></div>
+</div>
+       <div class="container">
+           <div class="col-xs-2 col-xs-offset-9"> <a class="glyphicon glyphicon-save btn btn-default btn-lg" href="{{ created.blog_items.url }}"></a>
+           </div>
+</div>
+{% for comment2 in created.comments.all %}
+ {% if user.is_authenticated or comment.approved_comment %}
+    <div class="container col-xs-6 col-xs-offset-1"><div class="comment">
+            <div class="date">{{ comment2.created_date }}</div>
+            {% if not comment2.approved_comment %}
+                <a class="btn btn-default" href="{% url 'comment_remove2' pk=comment2.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-default" href="{% url 'comment_approve2' pk=comment2.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+            {% endif %}
+
+        <strong>{{ comment2.author }}</strong>
+        <p>{{ comment2.text|linebreaks }}</p>
+    </div>
+        </div>
+ {% endif %}
+{% empty %}
+    <p>Нет комментариев</p>
+{% endfor %}
+<div class="container">
+    <div class="col-xs-6">
+<p>Добавить комментарий</p>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="save btn btn-default">Отправить</button>
+    </form>
+    </div>
+</div>
+{% endblock %}
